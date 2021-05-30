@@ -3,6 +3,8 @@ from unittest.main import main
 from shopping_cart import Item, ShoppingCart, NotExistItemError
 
 
+API_VERSION = 17
+
 class TestShoppingCart(unittest.TestCase):
 
     # despues de las prueba unitaria
@@ -59,8 +61,21 @@ class TestShoppingCart(unittest.TestCase):
     def test_fail(self):
         # casos que no cubran los metodos assert
         # lanzamos la excepcion nosotros mismos
-        if 2 < 3:
+        if 2 > 3:
             self.fail("Dos no es mayor a tres")
+
+    @unittest.skip(reason="Colocamos nuestro motivos de salto")
+    def test_prueba_skip(self):
+        pass
+
+    @unittest.skipIf(API_VERSION < 18, "La version es obsoleta")
+    def test_prueba_skip_if(self):
+        pass
+
+    @unittest.skipUnless(3 > 6, "Nuestros motivos")
+    def test_pruba_skip_unless(self):
+        pass
+
 
 
 if __name__ == "__main__":
