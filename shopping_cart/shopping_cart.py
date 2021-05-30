@@ -10,6 +10,9 @@ class Item:
     def __str__(self):
         return self.name
 
+    def code(self):
+        return "{}123456789".format(self.name)
+
 
 class ShoppingCart:
 

@@ -52,6 +52,10 @@ class TestShoppingCart(unittest.TestCase):
         self.assertLess(total, self.pan.price + 1.0)
         self.assertEqual(total, self.pan.price)
 
+    def test_codigo_pan(self):
+        # el string si contiene el nombre del producto
+        self.assertRegex(self.pan.code(), self.pan.name)
+
 
 if __name__ == "__main__":
     unittest.main()
