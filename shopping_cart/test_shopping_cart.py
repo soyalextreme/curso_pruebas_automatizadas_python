@@ -56,6 +56,12 @@ class TestShoppingCart(unittest.TestCase):
         # el string si contiene el nombre del producto
         self.assertRegex(self.pan.code(), self.pan.name)
 
+    def test_fail(self):
+        # casos que no cubran los metodos assert
+        # lanzamos la excepcion nosotros mismos
+        if 2 < 3:
+            self.fail("Dos no es mayor a tres")
+
 
 if __name__ == "__main__":
     unittest.main()
