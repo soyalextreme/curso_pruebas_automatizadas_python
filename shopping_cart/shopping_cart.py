@@ -1,3 +1,6 @@
+class NotExistItemError(Exception):
+    pass
+
 class Item:
 
     def __init__(self, name, price):
@@ -23,4 +26,7 @@ class ShoppingCart:
         self.items.remove(item)
 
     def get_item(self, item):
-        return self.items[self.items.index(item) - 1]
+        if item not in self.items:
+            raise NotExistItemError("Item does not exists")
+        else:
+            return self.items[self.items.index(item) - 1]

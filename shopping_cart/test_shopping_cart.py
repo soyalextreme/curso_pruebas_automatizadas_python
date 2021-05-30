@@ -1,6 +1,6 @@
 import unittest
 from unittest.main import main
-from shopping_cart import Item, ShoppingCart
+from shopping_cart import Item, ShoppingCart, NotExistItemError
 
 
 class TestShoppingCart(unittest.TestCase):
@@ -41,6 +41,10 @@ class TestShoppingCart(unittest.TestCase):
         # palabra reservada "is"
         self.assertIs(item, self.pan)
         self.assertIsNot(item, self.jugo)
+
+    def test_excepcion_al_obtener_jugo(self):
+        with self.assertRaises(NotExistItemError):
+            self.shopping_cart.get_item(self.jugo)
 
 
 
