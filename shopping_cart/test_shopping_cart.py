@@ -21,6 +21,8 @@ class TestShoppingCart(unittest.TestCase):
         assert 5 + 5 == 10
 
     def test_nombre_producto_igual_pan(self):
+        # comparar dos valores
+        # usando el singo igual dos veces
         self.assertEqual(self.pan.name.lower(), "pan")
 
     def test_nombre_producto_no_igual_pan(self):
@@ -32,6 +34,14 @@ class TestShoppingCart(unittest.TestCase):
     def test_no_contiene_productos(self):
         self.shopping_cart.remove_item(self.pan)
         self.assertFalse(self.shopping_cart.contains_items())
+
+    def test_obtener_producto_pan(self):
+        item = self.shopping_cart.get_item(self.pan)
+        # dos objetos son iguales
+        # palabra reservada "is"
+        self.assertIs(item, self.pan)
+        self.assertIsNot(item, self.jugo)
+
 
 
 if __name__ == "__main__":

@@ -21,3 +21,6 @@ class ShoppingCart:
 
     def remove_item(self, item):
         self.items.remove(item)
+
+    def get_item(self, item):
+        return self.items[self.items.index(item) - 1]
