@@ -30,3 +30,6 @@ class ShoppingCart:
             raise NotExistItemError("Item does not exists")
         else:
             return self.items[self.items.index(item) - 1]
+
+    def total(self):
+        return sum([item.price for item in self.items])

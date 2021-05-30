@@ -46,6 +46,11 @@ class TestShoppingCart(unittest.TestCase):
         with self.assertRaises(NotExistItemError):
             self.shopping_cart.get_item(self.jugo)
 
+    def test_total_con_un_producto(self):
+        total = self.shopping_cart.total()
+        self.assertGreater(total, 0)
+        self.assertLess(total, self.pan.price + 1.0)
+        self.assertEqual(total, self.pan.price)
 
 
 if __name__ == "__main__":
